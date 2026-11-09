@@ -171,7 +171,7 @@ $("#lg").onclick=async()=>{if(!$("#adm").hidden){await sb.auth.signOut();locatio
 $("#cl").onclick=()=>$("#dg").close();
 $("#go2").onclick=async()=>{
  const {error}=await sb.auth.signInWithPassword({email:$("#u").value.trim().toLowerCase()+"@"+DOM,password:$("#p").value});
- if(error){$("#le").textContent="Sai tên đăng nhập hoặc mật khẩu";return}
+ if(error){$("#le").textContent=error.message;return}
  $("#p").value="";$("#dg").close();admin()};
 async function admin(){$("#adm").hidden=false;$("#work").hidden=true;$("#none").hidden=true;$("#lg").textContent="Đăng xuất";loadList()}
 $("#af").onchange=e=>{const f=e.target.files[0];if(!f)return;const r=new FileReader();r.onload=()=>$("#as").value=r.result;r.readAsText(f)};
